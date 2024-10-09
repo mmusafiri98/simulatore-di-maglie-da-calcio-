@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maglia da Calcio con Modelli Personalizzati</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .jersey-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            margin-top: 60px;
+        }
+
+        .jersey {
+            width: 200px;
+            height: 300px;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #007bff;
+        }
+
+        .collar {
+            width: 100px;
+            height: 20px;
+            background-color: #ffffff;
+            position: absolute;
+            top: -10px;
+            left: 50px;
+            border-radius: 10px 10px 0 0;
+            z-index: 1;
+        }
+
+        .collar-border {
+            width: 120px;
+            height: 30px;
+            background-color: #333333;
+            position: absolute;
+            top: -15px;
+            left: 40px;
+            border-radius: 20px 20px 0 0;
+            z-index: 0;
+        }
+
+        .sleeve-left,
+        .sleeve-right {
+            width: 111px;
+            height: 100px;
+            background-color: #007bff;
+            position: absolute;
+            top: 0px;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .sleeve-left {
+            left: -60px;
+            width: 70px;
+            height: 110px;
+
+        }
+
+        .sleeve-right {
+            right: -60px;
+            width: 70px;
+            height: 110px;
+        }
+
+        .jersey-text {
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .jersey-number {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50px;
+            color: white;
+        }
+
+        .flag {
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            width: 40px;
+            height: 20px;
+            border: 1px solid #fff;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        .controls input[type="number"] {
+            padding: 8px;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .controls input[type="color"] {
+            width: 50px;
+            height: 30px;
+            margin: 10px 0;
+        }
+
+        /*================ HEADER STYLES ================*/
+        .header {
+            width: 100%;
+            height: 60px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 2rem;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav__menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav__item {
+            list-style: none;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Modelli di maglia */
+        .jersey.model-1 {
+            background-color: #007bff;
+        }
+
+        .jersey.model-2 {
+            background-color: #ff5733;
+        }
+
+        .jersey.model-3 {
+            background-color: #28a745;
+            border: 5px solid #ffffff;
+        }
+
+        /* Modello con striscia verticale nera */
+        .jersey.model-4 {
+            background-color: #007bff;
+
+        }
+
+        .jersey.model-4:before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 100%;
+            background-color: #000000;
+            left: 70%;
+            transform: translateX(-50%);
+        }
+
+        /* Modello con strisce orizzontali zebrati */
+        .jersey.model-5 {
+            background-color: white;
+            background-image: repeating-linear-gradient(90deg, #000000 0, #000000 10px, white 10px, white 20px);
+        }
+
+        /* Modello con maniche di colore diverso */
+        .jersey.model-6 {
+            background-color: #ffcc00;
+        }
+
+        /* Modello con maniche di colore diverso */
+        .jersey.model-7 {
+            background-color: violet;
+        }
+
+        /* Modello con maniche di colore diverso */
+        .jersey.model-8 {
+            background-color: red;
+        }
+
+        .sleeve-left.model-6,
+        .sleeve-right.model-6 {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header" id="header">
+        <nav class="nav">
+            <ul class="nav__menu">
+                <li class="nav__item">Simulatore di Maglie di Calcio LCL95 personalizzati</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="jersey-container">
+        <div class="jersey model-1" id="jersey">
+            <div class="collar-border" id="collarBorder"></div>
+            <div class="collar" id="collar"></div>
+            <div class="sleeve-left" id="sleeveLeft"></div>
+            <div class="sleeve-right" id="sleeveRight"></div>
+            <img src="bandieraitaliana.jpg" alt="Bandiera Italiana" class="flag">
+            <div class="jersey-text" id="jerseyText">LCL95</div>
+            <div class="jersey-number" id="jerseyNumber">10</div>
+        </div>
+
+        <div class="controls">
+            <label for="jerseyModel">Modello Maglia:</label><br>
+            <select id="jerseyModel" onchange="changeJerseyModel()">
+                <option value="model-1">Modello 1 (Blu)</option>
+                <option value="model-2">Modello 2 (Arancione)</option>
+                <option value="model-3">Modello 3 (Verde con Bordo)</option>
+                <option value="model-4">Modello 4 (Striscia Verticale Nera)</option>
+                <option value="model-5">Modello 5 (Strisce Orizzontali Zebrati)</option>
+                <option value="model-6">Modello 6 (Maniche di Colore Diverso)</option>
+            </select><br><br>
+
+            <label for="jerseyNumberInput">Numero Maglia:</label><br>
+            <input type="number" id="jerseyNumberInput" value="10" oninput="updateJerseyNumber()"><br><br>
+
+            <label for="jerseyColor">Colore Maglia:</label><br>
+            <input type="color" id="jerseyColor" value="#007bff" onchange="changeJerseyColor()"><br><br>
+
+            <label for="sleeveLeftColor">Colore Manica Sinistra:</label><br>
+            <input type="color" id="sleeveLeftColor" value="#007bff" onchange="changeSleeveLeftColor()"><br><br>
+
+            <label for="sleeveRightColor">Colore Manica Destra:</label><br>
+            <input type="color" id="sleeveRightColor" value="#007bff" onchange="changeSleeveRightColor()">
+        </div>
+    </div>
+
+    <script>
+        // Funzione per cambiare il numero della maglia
+        function updateJerseyNumber() {
+            var jerseyNumber = document.getElementById("jerseyNumberInput").value;
+            document.getElementById("jerseyNumber").textContent = jerseyNumber;
+        }
+
+        // Funzione per cambiare il colore della maglia
+        function changeJerseyColor() {
+            var color = document.getElementById("jerseyColor").value;
+            document.getElementById("jersey").style.backgroundColor = color;
+        }
+
+        // Funzione per cambiare il colore della manica sinistra
+        function changeSleeveLeftColor() {
+            var color = document.getElementById("sleeveLeftColor").value;
+            document.getElementById("sleeveLeft").style.backgroundColor = color;
+        }
+
+        // Funzione per cambiare il colore della manica destra
+        function changeSleeveRightColor() {
+            var color = document.getElementById("sleeveRightColor").value;
+            document.getElementById("sleeveRight").style.backgroundColor = color;
+        }
+
+        // Funzione per cambiare il modello della maglia
+        function changeJerseyModel() {
+            var model = document.getElementById("jerseyModel").value;
+            var jersey = document.getElementById("jersey");
+
+            // Rimuovi tutte le classi esistenti
+            jersey.classList.remove("model-1", "model-2", "model-3", "model-4", "model-5", "model-6");
+
+            // Aggiungi il nuovo modello
+            jersey.classList.add(model);
+        }
+    </script>
+
+</body>
+
+</html>
